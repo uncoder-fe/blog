@@ -7,13 +7,15 @@ install:
 script:
   - hugo new site myblog
   - mkdir myblog/content/posts
-  - cd myblog/content/posts
+  - cd myblog/content
   - git clone https://${GH_REF}/blog-backup.git
-  - cd ../..
+  - mv blog-backup posts
+  - cd ..
+  - rm -rf config.toml
+  - wget https://raw.githubusercontent.com/uncoder-fe/blog-backup/master/config.toml
   - cd themes/
   - git clone https://github.com/budparr/gohugo-theme-ananke.git
   - cd ..
-  - wget https://raw.githubusercontent.com/uncoder-fe/blog-backup/master/config.toml
   - hugo
   # - tree -L 3
 after_script:
