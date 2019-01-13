@@ -4,9 +4,10 @@ before_install:
   # - brew install yarn
   # - brew install hugo
   # - brew install tree
-  - brew install wget
+  # - brew install wget
 install:
   # - yarn
+  - brew install wget
 script:
   # - hugo new site myblog
   # - mkdir myblog/content/post
