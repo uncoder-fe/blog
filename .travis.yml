@@ -2,7 +2,7 @@ os: osx
 
 before_install:
   # - brew install yarn
-  - brew install hugo
+  # - brew install hugo
   # - brew install tree
   - brew install wget
 install:
@@ -16,7 +16,7 @@ script:
   # - cd themes/
   # - git clone https://${GH_REF}/hugo-theme-pokemon.git
   # - cd ..
-  # - wget https://raw.githubusercontent.com/uncoder-fe/backup/master/config.toml
+  - wget https://raw.githubusercontent.com/uncoder-fe/backup/master/config.toml
   # - hugo
   # - tree -L 3
 after_script:
