@@ -2,33 +2,28 @@ os: osx
 
 before_install:
   # - brew install yarn
-  # - brew install hugo
-  # - brew install tree
-  # - brew install wget
 install:
-  # - yarn
   - brew install hugo
-  - brew install wget
 script:
-  # - hugo new site myblog
-  # - mkdir myblog/content/post
-  # - cd myblog/content/post
-  # - git clone https://${GH_REF}/backup.git
-  # - cd ../..
-  # - cd themes/
-  # - git clone https://${GH_REF}/hugo-theme-pokemon.git
-  # - cd ..
-  - wget https://raw.githubusercontent.com/uncoder-fe/backup/master/config.toml
-  # - hugo
+  - hugo new site myblog
+  - mkdir myblog/content/posts
+  - cd myblog/content/posts
+  - git clone https://${GH_REF}/blog-backup.git
+  - cd ../..
+  - cd themes/
+  - git clone https://github.com/budparr/gohugo-theme-ananke.git
+  - cd ..
+  - wget https://raw.githubusercontent.com/uncoder-fe/blog-backup/master/config.toml
+  - hugo
   # - tree -L 3
 after_script:
-  # - cd ./public
-  # - git init
-  # - git config user.name "uncoder-fe"
-  # - git config user.email "uncoder@qq.com"
-  # - git add .
-  # - git commit -m "Update by Travis CI"
-  # - git push --force --quiet "https://${CLI_TOKEN}@${GH_REF}/uncoder-fe.github.io.git" master:master
+  - cd ./public
+  - git init
+  - git config user.name "uncoder-fe"
+  - git config user.email "uncoder@qq.com"
+  - git add .
+  - git commit -m "Update by Travis CI"
+  - git push --force --quiet "https://${CLI_TOKEN}@${GH_REF}/uncoder-fe.github.io.git" master:master
 branches:
   only:
     - master
