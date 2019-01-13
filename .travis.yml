@@ -7,6 +7,7 @@ before_install:
   # - brew install wget
 install:
   # - yarn
+  - brew install hugo
   - brew install wget
 script:
   # - hugo new site myblog
