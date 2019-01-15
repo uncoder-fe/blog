@@ -1,7 +1,10 @@
 ---
 title: "树莓派之安装nextcloud"
 date: 2019-01-16T00:09:14+08:00
-draft: true
+author: "uncoder-fe"
+tags: ["raspberry","docker","nextcloud"]
+categories: ["服务器相关"]
+slug: ""
 ---
 
 容器运行后，需要使用域名访问，然后进入web的安装界面，配置账户/数据库等。
