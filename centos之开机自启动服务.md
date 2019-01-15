@@ -1,5 +1,5 @@
 ---
-title: "linux之开机自启动服务"
+title: "centos之开机自启动服务"
 description: ""
 date: 2018-03-15T16:33:39+08:00
 author: "uncoder"
