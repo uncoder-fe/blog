@@ -82,5 +82,22 @@ vim /etc/mysql/mariadb.conf.d/50-server.cnf
 # 注释 skip_networking 或者 bind_address
 # bind_address=127.0.0.1
 ```
+# 更改nextcloud的文件目录
+
+```bash
+# 停止服务后
+vim /var/www/nextcloud/config/config.php
+```
+寻找`datadirectory`，修改你想要保存的目录`/var/data`，并把`datadirectory`目录里的所有文件拷贝到指定的目录。并修改一致的用户/组权限。
+
+```bash
+# 查看当前用户
+who
+# 查看pi组里的成员
+groups pi
+
+chown -R pi:pi /var/data
+chmod 755 data
+```
 
 注意：容器使用宿主的数据库是不推荐的，生产不要这样使用。
