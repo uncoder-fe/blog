@@ -18,3 +18,28 @@ tags: []
 * 通常会使用一个变量被赋值来持久保存闭包
 * 闭包让我们能够从一个函数内部访问其外部函数的作用域
 * 外部函数访问内部函数的自由变量
+
+```javascript
+function foo() {
+	// 使用匿名函数构成闭包
+	let bb = (function() {
+		this.cacheStr = '我是闭包内部的自由变量';
+		return {
+			getStr: () => this.cacheStr,
+			setStr: newStr => {
+				this.cacheStr = newStr;
+			}
+		};
+	})();
+	// 当前执行作用域代指外部函数
+	// 访问闭包
+	console.log(bb.getStr()); // 打印  我是闭包内部的自由变量
+	// 修改闭包的数据
+	bb.setStr('我是闭包内部的自由变量，新的值');
+	console.log(bb.getStr()); // 打印  我是闭包内部的自由变量，新的值
+	// 释放闭包
+	bb = null;
+}
+
+foo();
+```
