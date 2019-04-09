@@ -8,7 +8,7 @@ categories: ["其他"]
 slug: ""
 ---
 
-这里说明通过 vscode 调试 nodejs 程序的几种方式，本身使用的还是 调用nodejs 自带的调试工具。
+这里说明通过 vscode 调试 nodejs 程序的几种方式，本身使用的还是 调用nodejs 自带的调试[工具](https://code.visualstudio.com/docs/nodejs/nodejs-debugging)。
 
 <!--more-->
 
