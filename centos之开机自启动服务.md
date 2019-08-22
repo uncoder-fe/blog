@@ -13,7 +13,7 @@ slug: ""
 <!--more-->
 # centos 7.x
 
-## 新增/编辑`/lib/systemd/system/my-frp.service`
+## 新增/编辑`/lib/systemd/system/frp.service`
 
 ```bash
 [Unit]
@@ -36,15 +36,15 @@ WantedBy=multi-user.target
 # 跑起来
 
 ```
-systemctl start my-frp.service
-systemctl enable my-frp.service
+systemctl start frp.service
+systemctl enable frp.service
 ```
 
 _---_---_---_---_---_---_分割线_---_---_---_---_
 
 # debian 9.x
 
-## 新增/编辑 /lib/systemd/system/frp2.service
+## 新增/编辑 /lib/systemd/system/frp.service
 
 ExecStartPre这个很重要，frp启动需要睡觉才行
 
