@@ -2,16 +2,17 @@
 title: "树莓派之搭建nfs服务"
 date: 2019-01-17T00:09:14+08:00
 author: "uncoder-fe"
-tags: ["raspberry","nfs"]
+tags: ["raspberry", "nfs"]
 categories: ["服务器相关"]
 slug: ""
 ---
 
 使用一些媒体播放软件，可以直接接入树莓派内的视频等
 
-<!-- more -->
+<!--more-->
 
 # [安装](https://packages.debian.org/stretch/rpcbind)
+
 `nfs-utils`，这个树莓派不需要，是一个包，里面包含两个[软件](https://packages.debian.org/search?arch=armhf&searchon=sourcenames&keywords=nfs-utils)
 
 ```bash
@@ -35,18 +36,20 @@ sudo systemctl start rpcbind
 sudo systemctl start nfs-kernel-server
 ```
 
-nfs会开启3个服务:  
-1. portmapper:做端口映射的(默认使用111端口)
-2. mountd:管理NFS的文件系统(默认使用20048端口，可自己指定)
+nfs 会开启 3 个服务:
+
+1. portmapper:做端口映射的(默认使用 111 端口)
+2. mountd:管理 NFS 的文件系统(默认使用 20048 端口，可自己指定)
 
 ```bash
 vim /etc/services
 mountd 20048/udp
 mountd 20048/tcp
 ```
-3. nfs:管理客户端登录(默认使用2049端口)  
 
-# 配置frp端口转发
+3. nfs:管理客户端登录(默认使用 2049 端口)
+
+# 配置 frp 端口转发
 
 ```bash
 vim frpc.ini
