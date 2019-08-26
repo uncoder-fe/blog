@@ -10,13 +10,13 @@ jobs:
     - uses: actions/checkout@v1
     - name: install hugo
 
-    
+
       run: |
         brew install hugo
         hugo new site myblog
         mkdir myblog/content/posts
         cd myblog/content
-        git clone https://${GH_REF}/blog-backup.git
+        git clone git@github.com:uncoder-fe/blog-backup.git
         mv blog-backup posts
         cd ..
         rm -rf config.toml
