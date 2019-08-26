@@ -3,7 +3,7 @@ title: "移动端集成reactNative调研分享"
 description: ""
 date: 2017-11-14T10:24:42+08:00
 author: "uncoder"
-tags: ["react-native","android","ios","expo","gradle","bundle"]
+tags: ["react-native", "android", "ios", "expo", "gradle", "bundle"]
 categories: ["前端相关"]
 slug: ""
 ---
@@ -11,9 +11,10 @@ slug: ""
 ## 全新项目初始化
 
 [文档地址](https://facebook.github.io/react-native/docs/getting-started.html)
+
 <!--more-->
 
-- 方式一：expo开发
+- 方式一：expo 开发
 
 ```bash
 npm install -g create-react-native-app
@@ -38,7 +39,7 @@ react-native run-ios
 
 [文档地址](https://facebook.github.io/react-native/docs/integration-with-existing-apps.html)
 
-- android篇注意事项
+- android 篇注意事项
 
 ```javascript
 1，build.gradle文件有多个，根目录有一个全局配置，应用中有一个本应用配置
@@ -81,7 +82,7 @@ import Button from 'antd-mobile/lib/button';
 }
 ```
 
-- iOS篇注意事项
+- iOS 篇注意事项
 
 ```javascript
 1，podfile配置
@@ -140,7 +141,7 @@ info => build Configuration选择打包版本 =》 Debug／Release
 }
 ```
 
-## reactNative开发流程
+## reactNative 开发流程
 
 ```bash
 1, 生成jsBoudle
