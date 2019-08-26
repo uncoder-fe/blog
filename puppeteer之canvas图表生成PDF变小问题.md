@@ -8,15 +8,15 @@ categories: ["canvas"]
 tags: []
 ---
 
-由于默认的视窗大小是`800*600`
-所以一些图表库计算宽度和高度时候会有问题。
-解决方案：
+由于默认的视窗大小是`800*600`,所以一些图表库计算宽度和高度时候会有问题。
+
+<!--more-->
 
 ```javascript
 puppeteer.launch({
-    defaultViewport: {
-        width: 800,
-        height: 1000
-    }
-})
+  defaultViewport: {
+    width: 800,
+    height: 1000
+  }
+});
 ```
