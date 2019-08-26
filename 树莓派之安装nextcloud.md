@@ -3,7 +3,7 @@ title: "树莓派之安装nextcloud"
 date: 2019-01-16T00:09:14+08:00
 author: "uncoder-fe"
 tags: ["raspberry", "docker", "nextcloud"]
-categories: ["服务器相关"]
+categories: ["树莓派"]
 slug: ""
 ---
 

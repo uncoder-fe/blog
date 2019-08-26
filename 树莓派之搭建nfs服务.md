@@ -3,7 +3,7 @@ title: "树莓派之搭建nfs服务"
 date: 2019-01-17T00:09:14+08:00
 author: "uncoder-fe"
 tags: ["raspberry", "nfs"]
-categories: ["服务器相关"]
+categories: ["树莓派"]
 slug: ""
 ---
 

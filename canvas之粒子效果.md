@@ -1,8 +1,8 @@
 ---
-author: "小傻师哥"
+author: "uncoder-fe"
 date: "2017-01-11T16:43:37+08:00"
 description: "canvas的粒子效果实现"
-title: "canvas粒子效果"
+title: "canvas之粒子效果"
 slug: ""
 categories: ["canvas"]
 tags: []

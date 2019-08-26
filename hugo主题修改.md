@@ -1,7 +1,7 @@
 ---
 categories: ["其他"]
 tags: ["hugo","theme"]
-author: "小傻师哥"
+author: "uncoder-fe"
 date: "2017-01-05T15:30:53+08:00"
 title: "hugo主题修改"
 slug: ""

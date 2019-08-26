@@ -1,14 +1,15 @@
 ---
-title: "Docker常用命令"
+title: "Docker之常用命令"
 description: ""
 date: 2017-10-17T22:17:38+08:00
 author: "uncoder"
-tags: ["docker","容器"]
+tags: ["docker", "容器"]
 categories: ["服务器相关"]
 slug: ""
 ---
 
 常用命令
+
 <!--more-->
 
 ```bash
@@ -28,7 +29,7 @@ docker kill containerID
 // 启动容器
 docker start containerID
 // 进入一个容器
-docker attach containerID 
+docker attach containerID
 或docker exec -i -t containerID bash
 // 退出一个容器
 先ctrl + P，再ctrl + Q

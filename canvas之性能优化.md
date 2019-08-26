@@ -1,8 +1,8 @@
 ---
-title: "Canvas性能优化"
+title: "Canvas之性能优化"
 description: ""
 date: 2018-02-08T18:40:28+08:00
-author: "uncoder"
+author: "uncoder-fe"
 tags: []
 categories: ["canvas"]
 slug: ""
