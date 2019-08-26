@@ -1,17 +1,28 @@
-name: CI
+name: CI-build
 
 on: [push]
 
 jobs:
   build:
+    runs-on: macOS-latest
 
-    runs-on: ubuntu-latest
-    
     steps:
     - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
+    - name: install hugo
+
+    
       run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+        brew install hugo
+        hugo new site myblog
+        mkdir myblog/content/posts
+        cd myblog/content
+        git clone https://${GH_REF}/blog-backup.git
+        mv blog-backup posts
+        cd ..
+        rm -rf config.toml
+        wget https://raw.githubusercontent.com/uncoder-fe/blog-backup/master/config.toml
+        cd themes/
+        git clone https://github.com/budparr/gohugo-theme-ananke.git
+        cd ..
+        hugo
+        echo "build success"
