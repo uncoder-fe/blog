@@ -19,6 +19,9 @@ slug: ""
 
 此文件可以映射 `IP <---> 域名`，这样如果我们的`www.a.com`可以随意起名字了，个人感觉不必强制性的使用（nginx可以拦截）。
 
-# 备注
-
-一些前端开发时候用的`server`也是有的，比如`webpack-dev-server`
+# 接口
+```
+location /api/ {
+    proxy_pass https://xxxxxxxxxxxx.cloudfunctions.net/;
+}
+```
