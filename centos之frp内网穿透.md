@@ -33,6 +33,8 @@ token = 12345678
 
 vhost_http_port = 80
 vhost_https_port = 443
+
+allow_ports=1935
 ```
 
 # 客户端设置
@@ -73,4 +75,13 @@ type = tcp
 local_ip = 127.0.0.1
 local_port = 1935
 remote_port = 1935
+```
+
+# 运行
+
+```
+客户端
+./fprc -c ./frpc.ini
+服务端
+./fprs -c ./frps.ini
 ```
