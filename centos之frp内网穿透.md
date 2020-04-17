@@ -67,4 +67,10 @@ local_port = 443
 local_ip = 127.0.0.1
 remote_port = 443
 custom_domains = www.ooo.com
+
+[rtmp]
+type = tcp
+local_ip = 127.0.0.1
+local_port = 1935
+remote_port = 1935
 ```
