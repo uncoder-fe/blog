@@ -42,4 +42,12 @@ docker logs -f containerName
 docker port containerName 端口号
 // 从容器拷贝文件到host
 docker cp <containerId>:/filepath /host/path
+
+// 清理系统
+docker system info
+docker system prune -a --volumes
+docker image prune
+docker container prune
+docker volume prune
+docker network prune
 ```
