@@ -61,14 +61,14 @@ local_port = 80
 local_ip = 127.0.0.1
 remote_port = 80
 #若是想通过ip访问，不设置域名
-custom_domains = www.xxx.com
+custom_domains = xxx.com
 
 [web02]
 type = https
 local_port = 443
 local_ip = 127.0.0.1
 remote_port = 443
-custom_domains = www.ooo.com
+custom_domains = ooo.com
 
 [rtmp]
 type = tcp
