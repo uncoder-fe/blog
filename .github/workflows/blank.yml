@@ -27,12 +27,8 @@ jobs:
           git init
           echo "开始themes........."
           git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
-          echo "查看themes........."
-          ls myblog/themes
-          echo "下载配置........."
-          wget https://raw.githubusercontent.com/uncoder-fe/blog-backup/master/config.toml
-          rm -rf myblog/config.toml
-          mv config.toml myblog
+          echo 'theme = "ananke"' >> config.toml
+          echo 'baseURL = "/"' >> config.toml
           mv $GITHUB_WORKSPACE/*.md myblog/content/posts
           echo "开始构建........."
           cd myblog
