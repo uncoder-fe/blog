@@ -37,6 +37,8 @@ jobs:
           git config --local user.name $USER_NAME
           git config --local user.email $USER_EMAIL
           git status
+          git remote add origin https://$GITHUB_TOKEN@github.com/uncoder-fe.github.io.git
           git add .
           git commit -m "Update by github actions"
-          git push --force --quiet "https://$GITHUB_TOKEN@$GITHUB_REF/uncoder-fe.github.io.git" master:master
+          git push origin master -f
+          echo 🤘 deploy master complete.
