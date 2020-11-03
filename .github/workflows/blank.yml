@@ -26,7 +26,7 @@ jobs:
           mkdir myblog/content/posts
           git init
           echo "开始themes........."
-          git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
+          git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
           echo "查看themes........."
           ls myblog/themes
           echo "下载配置........."
