@@ -26,6 +26,7 @@ jobs:
           mkdir myblog/content/posts
           git init
           git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
+          ls myblog/themes
           wget https://raw.githubusercontent.com/uncoder-fe/blog-backup/master/config.toml
           rm -rf myblog/config.toml
           mv config.toml myblog
