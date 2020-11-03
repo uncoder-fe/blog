@@ -21,3 +21,4 @@ jobs:
       - name: Commit files
         run: |
           echo $GITHUB_WORKSPACE
+          ls -a
