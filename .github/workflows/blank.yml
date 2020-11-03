@@ -18,29 +18,5 @@ jobs:
         with:
           token: ${{ secrets.COMMIT_TOKEN }}
           repository: uncoder-fe/blog-backup
-      - name: install hugo
         run: |
-          brew install hugo
-          hugo new site myblog
-          mkdir myblog/content/posts
-          cd myblog/content
-          git clone git@github.com:uncoder-fe/blog-backup.git
-          mv blog-backup posts
-          cd ..
-          rm -rf config.toml
-          wget https://raw.githubusercontent.com/uncoder-fe/blog-backup/master/config.toml
-          cd themes/
-          git clone https://github.com/budparr/gohugo-theme-ananke.git
-          cd ..
-          hugo
-          echo "build success"
-      - name: Commit files
-        run: |
-          cd ./public
-          git init
-          git config --local user.name $USER_NAME
-          git config --local user.email $USER_EMAIL
-          git status
-          git add .
-          git commit -m "Update by github actions"
-          git push --force --quiet "https://$GITHUB_TOKEN@github.com/uncoder-fe.github.io.git" master:master
+        pwd
