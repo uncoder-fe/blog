@@ -20,4 +20,4 @@ jobs:
           repository: uncoder-fe/blog-backup
        - name: Commit files
         run: |
-          pwd
+          echo $GITHUB_WORKSPACE
