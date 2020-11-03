@@ -18,5 +18,6 @@ jobs:
         with:
           token: ${{ secrets.COMMIT_TOKEN }}
           repository: uncoder-fe/blog-backup
+       - name: Commit files
         run: |
-        pwd
+          pwd
