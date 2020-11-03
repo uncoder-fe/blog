@@ -28,6 +28,7 @@ jobs:
           git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
           echo 'theme = "ananke"' >> config.toml
           mv $GITHUB_WORKSPACE myblog/content/posts
+          ls myblog/content/posts
           hugo
           ls -a
           echo "构建成功"
