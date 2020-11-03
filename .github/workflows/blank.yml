@@ -27,6 +27,8 @@ jobs:
           git init
           git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
           echo 'theme = "ananke"' >> config.toml
+          echo 'baseURL = "/"' >> config.toml
+          echo 'title = "不三之选"' >> config.toml
           cat config.toml
           mv $GITHUB_WORKSPACE/*.md myblog/content/posts
           echo "开始构建........."
