@@ -14,12 +14,10 @@ jobs:
       USER_EMAIL: uncoder-fe@fake.com
     steps:
       - name: 'Checkout'
-      - uses: actions/checkout@v2
-      - name: 'Preparing blueprint-environment'
-      - uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.COMMIT_TOKEN }}
-          repository: uncoder-fe/blog-backup.git
+        uses: actions/checkout@v2
+          with:
+            token: ${{ secrets.COMMIT_TOKEN }}
+            repository: uncoder-fe/blog-backup.git
       - name: install hugo
         run: |
           brew install hugo
