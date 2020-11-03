@@ -15,9 +15,9 @@ jobs:
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v2
-          with:
-            token: ${{ secrets.COMMIT_TOKEN }}
-            repository: uncoder-fe/blog-backup.git
+        with:
+          token: ${{ secrets.COMMIT_TOKEN }}
+          repository: uncoder-fe/blog-backup.git
       - name: install hugo
         run: |
           brew install hugo
