@@ -13,7 +13,10 @@ jobs:
       USER_NAME: uncoder-fe
       USER_EMAIL: uncoder-fe@fake.com
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+        with:
+        token: ${{ secrets.COMMIT_TOKEN }}
+        repository: uncoder-fe/blog-backup.git
       - name: install hugo
         run: |
           brew install hugo
