@@ -25,10 +25,8 @@ jobs:
           hugo new site myblog
           mkdir myblog/content/posts
           git init
-          echo "开始themes........."
           git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
-          rm -rf myblog/config.toml
-          wget https://raw.githubusercontent.com/uncoder-fe/blog-backup/master/config.toml myblog
+          mv -f $GITHUB_WORKSPACE/config.toml myblog
           mv $GITHUB_WORKSPACE/*.md myblog/content/posts
           echo "开始构建........."
           cd myblog
