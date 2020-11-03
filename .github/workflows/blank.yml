@@ -31,7 +31,9 @@ jobs:
           hugo
           ls -a
           echo "构建成功"
+          echo "开始上传目标仓库"
           cd ./public
+          git init
           git config --local user.name $USER_NAME
           git config --local user.email $USER_EMAIL
           git status
