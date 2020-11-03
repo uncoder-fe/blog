@@ -31,8 +31,6 @@ jobs:
           hugo
           ls -a
           echo "构建成功"
-      - name: Commit files
-        run: |
           cd ./public
           git config --local user.name $USER_NAME
           git config --local user.email $USER_EMAIL
