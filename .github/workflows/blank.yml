@@ -29,9 +29,14 @@ jobs:
           echo 'theme = "ananke"' >> config.toml
           mv $GITHUB_WORKSPACE myblog/content/posts
           hugo
-          echo "build success"
+          ls -a
+          echo "构建成功"
       - name: Commit files
         run: |
-          echo $GITHUB_WORKSPACE
-          ls -a
-          
+          cd ./public
+          git config --local user.name $USER_NAME
+          git config --local user.email $USER_EMAIL
+          git status
+          git add .
+          git commit -m "Update by github actions"
+          git push --force --quiet "https://$GITHUB_TOKEN@github.com/uncoder-fe.github.io.git" master:master
