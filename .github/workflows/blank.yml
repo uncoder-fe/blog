@@ -18,7 +18,17 @@ jobs:
         with:
           token: ${{ secrets.COMMIT_TOKEN }}
           repository: uncoder-fe/blog-backup
+      - name: install hugo
+        run: |
+          cd ..
+          brew install hugo
+          hugo new site myblog
+          mkdir myblog/content/posts
+          mv $GITHUB_WORKSPACE myblog/content/posts
+          hugo
+          echo "build success"
       - name: Commit files
         run: |
           echo $GITHUB_WORKSPACE
           ls -a
+          
