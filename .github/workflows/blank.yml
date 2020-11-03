@@ -30,7 +30,6 @@ jobs:
           mv $GITHUB_WORKSPACE myblog/content/posts
           ls myblog/content/posts
           hugo
-          ls -a
           echo "构建成功"
           echo "开始上传目标仓库"
           cd ./public
