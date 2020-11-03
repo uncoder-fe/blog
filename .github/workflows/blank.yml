@@ -37,4 +37,4 @@ jobs:
           git status
           git add .
           git commit -m "Update by github actions"
-          git push --force --quiet "https://$GITHUB_TOKEN@github.com/uncoder-fe.github.io.git" master:master
+          git push --force --quiet "https://$GITHUB_TOKEN@$GITHUB_REF/uncoder-fe.github.io.git" master:master
