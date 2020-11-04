@@ -1,7 +1,7 @@
 title = "不三之选"
 baseURL = "/"
 languageCode = "en-us"
-theme = "ananke"
+theme = "gohugo-theme-ananke"
 
 MetaDataFormat = "yaml"
 DefaultContentLanguage = "en"
