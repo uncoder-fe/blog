@@ -81,7 +81,7 @@ remote_port = 1935
 
 ```
 客户端
-./fprc -c ./frpc.ini
+./frpc -c ./frpc.ini
 服务端
-./fprs -c ./frps.ini
+./frps -c ./frps.ini
 ```
