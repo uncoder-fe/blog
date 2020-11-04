@@ -25,14 +25,14 @@ jobs:
           brew install hugo
           hugo new site myblog
           mkdir myblog/content/posts
+          cd myblog
           git init
           git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
-          git submodule sync --recursive
           echo "开始输出themes内容........."
-          ls myblog/themes
+          ls themes
           echo "themes内容........."
+          cd ..
           mv $GITHUB_WORKSPACE/config.toml myblog
-          ls myblog
           cat myblog/config.toml
           mv $GITHUB_WORKSPACE/*.md myblog/content/posts
           echo "开始构建........."
