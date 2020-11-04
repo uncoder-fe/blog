@@ -27,8 +27,7 @@ jobs:
           mkdir myblog/content/posts
           git init
           git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
-          git submodule sync
-          git submodule update
+          git submodule sync --recursive
           echo "开始输出themes内容........."
           ls myblog/themes
           echo "themes内容........."
