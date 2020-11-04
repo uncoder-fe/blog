@@ -12,6 +12,8 @@ slug: ""
 > If you can't explain it simply, you don't understand it well enough.
 > Albert Einstein
 
+<!--more-->
+
 # 概念
 
 前端视角来看，ArrayBuffer 对象用来表示通用的、固定长度的原始二进制数据缓冲区。
