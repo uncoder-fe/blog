@@ -25,8 +25,13 @@ jobs:
           brew install hugo
           hugo new site myblog
           mkdir myblog/content/posts
-          hugo mod init github.com/theNewDynamic/gohugo-theme-ananke
-          mv -f $GITHUB_WORKSPACE/config.toml myblog/config.toml
+          git init
+          git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
+          git submodule sync
+          git submodule update --init
+          ls myblog/themes
+          mv $GITHUB_WORKSPACE/config.toml myblog
+          ls myblog
           cat myblog/config.toml
           mv $GITHUB_WORKSPACE/*.md myblog/content/posts
           echo "开始构建........."
