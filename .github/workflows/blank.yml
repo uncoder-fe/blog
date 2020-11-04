@@ -1,10 +1,8 @@
 name: deploy gh-pages
-
 on:
   push:
     branches:
       - master
-
 jobs:
   build:
     runs-on: macOS-latest
@@ -17,7 +15,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           submodules: true
-          token: ${{ secrets.COMMIT_TOKEN }}
+          token: $TOKEN
           repository: uncoder-fe/blog-backup
       - name: "hugo install"
         run: |
