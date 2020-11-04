@@ -32,18 +32,15 @@ jobs:
       - name: "hugo build"
         run: |  
           echo "开始构建"
-          ls
           cd ..
           mv $GITHUB_WORKSPACE/config.toml myblog
-          cat myblog/config.toml
           mv $GITHUB_WORKSPACE/*.md myblog/content/posts
           cd myblog
           hugo --minify
       - name: "hugo deploy"
         run: |
-          echo "开始部署"  
-          ls
-          cd ./public
+          echo "开始部署"
+          cd myblog/public
           git init
           git config --local user.name $USER_NAME
           git config --local user.email $USER_EMAIL
