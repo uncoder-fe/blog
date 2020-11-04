@@ -19,23 +19,30 @@ jobs:
           submodules: true
           token: ${{ secrets.COMMIT_TOKEN }}
           repository: uncoder-fe/blog-backup
-      - name: "install hugo"
+      - name: "hugo install"
         run: |
-          cd ..
+          echo "准备环境" 
           brew install hugo
+          cd ..
           hugo new site myblog
           mkdir myblog/content/posts
           cd myblog
           git init
           git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
+      - name: "hugo build"
+        run: |  
+          echo "开始构建"
+          ls
           cd ..
           mv $GITHUB_WORKSPACE/config.toml myblog
           cat myblog/config.toml
           mv $GITHUB_WORKSPACE/*.md myblog/content/posts
-          echo "开始构建........."
           cd myblog
           hugo --minify
-          echo "开始上传目标仓库"
+      - name: "hugo deploy"
+        run: |
+          echo "开始部署"  
+          ls
           cd ./public
           git init
           git config --local user.name $USER_NAME
@@ -45,10 +52,5 @@ jobs:
           git add .
           git commit -m "Update by github actions"
           git push origin master -f
-          echo 🤘 deploy master complete.
-      - name: "输入"
-        run: |
-          ls $GITHUB_WORKSPACE
-          cd ..
-          ls
+          echo "部署完成".
           
