@@ -1,3 +1,13 @@
+---
+title: "javascript之Arraybuffer跨语言数据交换"
+date: 2020-8-13T16:01:25+08:00
+description: ""
+author: "uncoder-fe"
+tags: ["Arraybuffer"]
+categories: ["javascript"]
+slug: ""
+---
+
 
 > If you can't explain it simply, you don't understand it well enough.
 > Albert Einstein
@@ -17,19 +27,24 @@ fetch('https://s3.pstatp.com/ee/feishu_website/static/img/logo-zh.648d6d020e.web
 
 聪明的你已经发现了奇怪的事，Int8Array / Int16Array / Uint8Array这些东西，其实是一样的(也是不一样的)，同一份buffer的不同编码格式的类数组(TypedArray)，可以看到每种类型后面的长度（字节个数），3462 = 1731*2。还可以看到arraybuffer的长度和Int8Array的长度一样，都是3462，这个点可以注意一下。
 ## typedArray
+
 一个类型化数组（TypedArray）对象描述了一个底层的二进制数据缓冲区（binary data buffer）的一个类数组视图（view）。
+
 ## 16进制数据
 16进制数据(简写为hex，在数学中是一种逢16进1的进位制)。举个例子, 红色的阴影是十进制 238,9,63 ，或者rgb(238, 9, 63)，可以编成 #ee093f。
 
 做过加密比如(AES)的同学应该知道base64与hex是常用的格式，思考，为啥用这种方式呢？
+
 # 生成arraybuffer
 你不能直接操作 ArrayBuffer 的内容，而是要通过类型数组对象（TypedArray）或 DataView 对象来操作，它们会将缓冲区中的数据表示为特定的格式，并通过这些格式来读写缓冲区的内容。
 利用构造函数创建一个ArrayBuffer对象
-```
+
+```js
 const arrybuffer = new ArrayBuffer(length);
 length: 要创建的 ArrayBuffer 的大小，单位为字节（Byte）。
 arrybuffer: 一个指定大小的 ArrayBuffer 对象，其内容被初始化为0。
 ```
+
 ## 字节
 没有跳动，这个计算机术语是个旧词汇，下面掰扯一下。
 
@@ -46,7 +61,8 @@ arrybuffer: 一个指定大小的 ArrayBuffer 对象，其内容被初始化为0
 在表示一个 Unicode 的字符时，通常会用“U+”然后紧接着一组十六进制的数字来表示这一个字符。
 
 比如栗子：
-```
+
+```js
 const str = '中';
 const i = str.charCodeAt(); 
 // 二进制表示，100111000101101
@@ -58,7 +74,8 @@ Unicode 的实现方式称为 Unicode转换格式（Unicode Transformation Forma
 
 ### UTF-8
 UTF-8（8-bit Unicode Transformation Format）是一种针对Unicode的可变长度字符编码，也是一种前缀码。它可以用一至四个字节对Unicode字符集中的所有有效编码点进行编码，属于Unicode标准的一部分，最初由肯·汤普逊和罗布·派克提出。
-```
+
+```js
 00000000 00000000 00000000 00000000  // 此行没有意义，方便观看对比
 // 4e2d，在第三个范围，需要用三个字节（3 * 8）24位表示
 100 1110 0010 1101  // 二进制
@@ -73,7 +90,8 @@ e4       b8       ad  //转换为UTF-8分组，16进制表示
 
 ## 从base64创建一个ArryBuffer对象
 首先我们获取一个base64的字符串，常规操作，见证奇迹。
-```
+
+```js
 const str = '中';
 const barse64Str = window.btoa(str); //啊哦，浏览器报错了 The string to be encoded contains characters outside of the Latin1 range.
 报错了，很尴尬，有人知道为什么嘛？
@@ -89,7 +107,7 @@ American Standard Code for Information Interchange是基于拉丁字母的一套
 有很多种方法可以解决这个问题：高位转低位
 这里我们使用第三个方法，原因是代码短 / 小 / 便携，你懂的😈
 
-```
+```js
 // 编码
 function btoaUTF16(sString) {
     // 先声明一个无符号16位的类数组，可理解为承载容器
@@ -122,18 +140,23 @@ function atobUTF16(sBase64) {
 }
 const result = atobUTF16('LU79VqZo'); // '中国梦'
 ```
+
 到此base64创建arraybuffer已经结束了，啥，你没看明白？看来你没注意听讲啊.
 
 ## 从字符串创建一个ArrayBuffer
+
+```js
 const enc = new TextEncoder(); // always utf-8
 const arry = enc.encode('中国梦');
 console.log(arry);
 const dnc = new TextDecoder();
 console.log(dnc.decode(arry))
+```
 
 ## 从blob创建一个ArrayBuffer
 使用开头我们的栗子，直接发起请求
-```
+
+```js
 fetch('https://s3.pstatp.com/ee/feishu_website/static/img/logo-zh.648d6d020e.webp', { method: 'get' })
 .then(response => response.blob())
 .then(blob => { console.log(blob) });
@@ -141,12 +164,15 @@ fetch('https://s3.pstatp.com/ee/feishu_website/static/img/logo-zh.648d6d020e.web
 控制台执行，输入如下
 
 不错不错，已经有blob对象了，下一步就非常简单了
-```
+
+```js
 const buffer = await blob.arrayBuffer();
 ```
+
 ## 思考，既然blob创建buffer这么简单，那或许可以利用一下
 创建一个blob对象，然后塞入一个字符串
-```
+
+```js
 const blob = new Blob(['中国梦'], {type : 'plain/text'});
 const buffer = await blob.arrayBuffer();
 ```
@@ -154,14 +180,16 @@ const buffer = await blob.arrayBuffer();
 
 # 反转arraybuffer为数据
 ## 转 string
-```
+
+```js
 function ab2str(buf) {
   return String.fromCharCode.apply(null, new Uint16Array(buf));
 }
 ```
 
 ## 转  blob  转 object
-```
+
+```js
 const blob = new Blob([arraybuffer||typedArray]);
 const reader = new FileReader();
 reader.readAsText(blob, 'utf-16');
@@ -171,7 +199,8 @@ reader.onload = function(e) {
 ```
 
 ## 转  string
-```
+
+```js
 new TextDecoder('utf-16').decode(typedArray)
 ```
 
