@@ -27,10 +27,9 @@ jobs:
           mkdir myblog/content/posts
           git init
           git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
-          echo 'theme = "ananke"' >> config.toml
-          echo 'baseURL = "/"' >> config.toml
-          echo 'title = "不三之选"' >> config.toml
-          cat config.toml
+          rm -rf myblog/config.toml
+          mv $GITHUB_WORKSPACE/config.toml myblog
+          cat myblog/config.toml
           mv $GITHUB_WORKSPACE/*.md myblog/content/posts
           echo "开始构建........."
           cd myblog
