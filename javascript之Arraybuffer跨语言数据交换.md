@@ -13,30 +13,36 @@ slug: ""
 > Albert Einstein
 
 # 概念
-前端领域来看，ArrayBuffer 对象用来表示通用的、固定长度的原始二进制数据缓冲区。
+
+前端视角来看，ArrayBuffer 对象用来表示通用的、固定长度的原始二进制数据缓冲区。
 其他语言中称为byte array，它是一个字节数组。
 
-举个栗子：常见的文件下载/图像下载，这里使用左上角的icon当作资源地址（后缀webp的，挺先进的）
-```
+举个栗子：常见的文件下载/图像下载，这里使用一个icon当作资源地址。
+
+```js
 fetch('https://s3.pstatp.com/ee/feishu_website/static/img/logo-zh.648d6d020e.webp', { method: 'get' })
 .then(response=>response.arrayBuffer())// 可选blob()，这里只做对buffer类型的设定，也有其他类型
 .then(arrybuffer=>{ console.log(arrybuffer) });
 ```
+
 浏览器控制台直接拷贝以上代码，并回车执行，结果如下。
 
 
 聪明的你已经发现了奇怪的事，Int8Array / Int16Array / Uint8Array这些东西，其实是一样的(也是不一样的)，同一份buffer的不同编码格式的类数组(TypedArray)，可以看到每种类型后面的长度（字节个数），3462 = 1731*2。还可以看到arraybuffer的长度和Int8Array的长度一样，都是3462，这个点可以注意一下。
+
 ## typedArray
 
 一个类型化数组（TypedArray）对象描述了一个底层的二进制数据缓冲区（binary data buffer）的一个类数组视图（view）。
 
 ## 16进制数据
+
 16进制数据(简写为hex，在数学中是一种逢16进1的进位制)。举个例子, 红色的阴影是十进制 238,9,63 ，或者rgb(238, 9, 63)，可以编成 #ee093f。
 
 做过加密比如(AES)的同学应该知道base64与hex是常用的格式，思考，为啥用这种方式呢？
 
 # 生成arraybuffer
-你不能直接操作 ArrayBuffer 的内容，而是要通过类型数组对象（TypedArray）或 DataView 对象来操作，它们会将缓冲区中的数据表示为特定的格式，并通过这些格式来读写缓冲区的内容。
+
+你不能直接操作`ArrayBuffer`的内容，而是要通过类型数组对象（TypedArray）或 DataView 对象来操作，它们会将缓冲区中的数据表示为特定的格式，并通过这些格式来读写缓冲区的内容。
 利用构造函数创建一个ArrayBuffer对象
 
 ```js
@@ -205,5 +211,6 @@ new TextDecoder('utf-16').decode(typedArray)
 ```
 
 # 备注
+
 表单上传的时候，推荐使用typedArray。
 
