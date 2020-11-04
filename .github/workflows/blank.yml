@@ -28,9 +28,6 @@ jobs:
           cd myblog
           git init
           git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
-          echo "开始输出themes内容........."
-          ls themes
-          echo "themes内容........."
           cd ..
           mv $GITHUB_WORKSPACE/config.toml myblog
           cat myblog/config.toml
@@ -38,7 +35,6 @@ jobs:
           echo "开始构建........."
           cd myblog
           hugo --minify
-          echo "构建成功"
           echo "开始上传目标仓库"
           cd ./public
           git init
@@ -50,3 +46,9 @@ jobs:
           git commit -m "Update by github actions"
           git push origin master -f
           echo 🤘 deploy master complete.
+      - name: "输入"
+        run: |
+          ls $GITHUB_WORKSPACE
+          cd ..
+          ls
+          
