@@ -16,7 +16,7 @@ jobs:
         with:
           submodules: true
           token: ${{ secrets.COMMIT_TOKEN }}
-          repository: uncoder-fe/blog-backup
+          repository: uncoder-fe/blog
       - name: "hugo install"
         run: |
           echo "准备环境" 
