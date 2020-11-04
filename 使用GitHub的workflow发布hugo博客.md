@@ -1,7 +1,6 @@
 ---
 title: "使用GitHub的workflow发布hugo博客"
 date: 2020-11-04T16:01:25+08:00
-draft: true
 description: ""
 author: "uncoder-fe"
 tags: ["git","workflow"]
@@ -11,6 +10,7 @@ slug: ""
 
 以前是使用Travis CI提供的服务进行构建的，现迁移到GitHub自带的actions来构建部署。
 
+<!--more-->
 
 # 新建一个token
 
