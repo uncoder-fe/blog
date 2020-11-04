@@ -40,6 +40,7 @@ jobs:
       - name: "hugo deploy"
         run: |
           echo "开始部署"
+          cd ..
           cd myblog/public
           git init
           git config --local user.name $USER_NAME
