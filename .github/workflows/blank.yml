@@ -28,8 +28,10 @@ jobs:
           git init
           git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
           git submodule sync
-          git submodule update --init
+          git submodule update
+          echo "开始输出themes内容........."
           ls myblog/themes
+          echo "themes内容........."
           mv $GITHUB_WORKSPACE/config.toml myblog
           ls myblog
           cat myblog/config.toml
