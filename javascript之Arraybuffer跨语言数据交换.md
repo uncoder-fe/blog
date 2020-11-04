@@ -1,6 +1,6 @@
 ---
 title: "javascript之Arraybuffer跨语言数据交换"
-date: 2020-8-13T16:01:25+08:00
+date: 2020-08-13T16:01:25+08:00
 description: ""
 author: "uncoder-fe"
 tags: ["Arraybuffer"]
