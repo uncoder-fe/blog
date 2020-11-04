@@ -16,6 +16,7 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v2
         with:
+          submodules: true
           token: ${{ secrets.COMMIT_TOKEN }}
           repository: uncoder-fe/blog-backup
       - name: install hugo
@@ -33,7 +34,7 @@ jobs:
           mv $GITHUB_WORKSPACE/*.md myblog/content/posts
           echo "开始构建........."
           cd myblog
-          hugo
+          hugo --minify
           echo "构建成功"
           echo "开始上传目标仓库"
           cd ./public
