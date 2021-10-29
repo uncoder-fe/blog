@@ -1,5 +1,5 @@
 ---
-title: "Javascript系列之数据描述"
+title: "Javascript系列之文件描述"
 description: ""
 date: 2017-03-09T14:57:23+08:00
 author: "uncoder"
