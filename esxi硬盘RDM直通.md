@@ -50,7 +50,7 @@ Sector size (logical/physical): 512 bytes / 512 bytes
 I/O size (minimum/optimal): 512 bytes / 512 bytes
 Disklabel type: dos
 Disk identifier: 0x021fbde2
-
+// 备注：当没有挂载时，下面的/dev/sdb1不存在
 Device     Boot Start       End   Sectors   Size Id Type
 /dev/sdb1        2048 625142447 625140400 298.1G 83 Linux
 
@@ -104,7 +104,19 @@ sudo mount /dev/sdb1 ~
 df命令
 
 ```
-/dev/sdb1          306615568   65564 290905112   1% /home/uuu
+Filesystem                        1K-blocks    Used Available Use% Mounted on
+udev                                 970472       0    970472   0% /dev
+tmpfs                                203092    1200    201892   1% /run
+/dev/mapper/ubuntu--vg-ubuntu--lv  14638072 4502912   9371872  33% /
+tmpfs                               1015452       0   1015452   0% /dev/shm
+tmpfs                                  5120       0      5120   0% /run/lock
+tmpfs                               1015452       0   1015452   0% /sys/fs/cgroup
+/dev/loop0                            63488   63488         0 100% /snap/core20/1328
+/dev/loop2                            44672   44672         0 100% /snap/snapd/14978
+/dev/loop1                            68864   68864         0 100% /snap/lxd/21835
+/dev/sda2                           1515376  112476   1307876   8% /boot
+/dev/sdb1                         306615568   65564 290905112   1% /home/uuu
+tmpfs                                203088       0    203088   0% /run/user/1000
 ```
 
 6. 开启自动挂载
