@@ -10,7 +10,7 @@ slug: ""
 
 使用docker安装`minio/minio`镜像
 
-<!-- more -->
+<!--more-->
 
 ```
 
