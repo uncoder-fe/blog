@@ -12,6 +12,7 @@ slug: ""
 
 <!--more-->
 
+
 ```
 
 sudo docker pull minio/minio
