@@ -1,5 +1,5 @@
 ---
-title: "nas-minio搭建"
+title: "docker安装minio"
 date: 2022-03-15T16:01:25+08:00
 description: ""
 author: "uncoder-fe"
@@ -14,7 +14,6 @@ slug: ""
 
 
 ```
-
 sudo docker pull minio/minio
 
 sudo docker run \
@@ -30,8 +29,10 @@ sudo docker run \
 宿主数据目录: `~/minio/data`
 用户名: `minio`
 密码: `minio@123`
+
 # 访问
 http://192.168.x.x:9001/login
+
 # 静态文件
 1. 创建一个bucket,访问策略设置为public,
 2. 上传一个test.png图片，点击share按钮
