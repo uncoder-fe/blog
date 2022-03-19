@@ -9,4 +9,32 @@ slug: ""
 ---
  
 固件升级
+
 <!--more-->
+
+1. ilo升级
+
+下载.exe，然后解压
+
+```
+https://support.hpe.com/connect/s/product?language=zh_CN&tab=driversAndSoftware&kmpmoid=1010145741&driversAndSoftwareFilter=8000113
+```
+
+2. 语言包
+
+下载.exe，然后解压
+
+```
+https://support.hpe.com/connect/s/product?language=zh_CN&tab=driversAndSoftware&kmpmoid=1010145741&driversAndSoftwareFilter=8000113
+```
+
+3. bios
+
+System ROM Flash Binary - HPE ProLiant MicroServer Gen10 Plus (U48) Servers
+
+```
+
+https://support.hpe.com/connect/s/search#q=HPE%20ProLiant%20MicroServer%20Gen10%20Plus%20Servers%20System%20ROM%20Flash%20Binary&t=DriversandSoftware&sort=relevancy&numberOfResults=25
+
+https://support.hpe.com/connect/s/softwaredetails?softwareId=MTX_7189afc93c7d4f1895de220f49&tab=productsImpacted
+```
