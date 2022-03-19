@@ -1,5 +1,5 @@
 ---
-title: "doker安装plex"
+title: "docker安装plex"
 date: 2022-03-19T16:01:25+08:00
 description: ""
 author: "uncoder-fe"
