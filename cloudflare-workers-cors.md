@@ -32,3 +32,21 @@ addEventListener('fetch', event => {
   return event.respondWith(response);
 });
 ```
+
+
+构造跨域请求，mode:cors，进行Preflight_request
+
+```js
+fetch(url, {
+    method: "GET",
+    mode: "cors",
+    cache: "no-cache",
+    // credentials: "same-origin",
+    headers: {
+      'Content-Type': 'application/json'
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: "follow",
+    referrer: "no-referrer", // no-referrer, *client
+  })
+```
